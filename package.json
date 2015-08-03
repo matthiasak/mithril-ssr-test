@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "github.com:FILL-ME-IN.git"
+    "url": "https://github.com/matthiasak/mithril-ssr-test.git"
   },
   "scripts": {
     "build:css": "postcss --use postcss-import --use postcss-mixins --use postcss-simple-vars --use postcss-calc --use postcss-nested --use postcss-conditionals --use postcss-for --use postcss-each --use postcss-simple-extend --use autoprefixer --use csswring -o ./dist/style.css scss/style.scss;",
