@@ -1,52 +1,15 @@
-### Universal JS Boilerplate
+### Mithril Isomorphic/Universal experiment
 
----
+> ... demonstrating why React is still valid.
 
-This is a scaffolding project that includes boilerplate code for:
+Per this blog post (https://medium.com/@l1ambda/mithril-vs-angular-vs-react-d0d659c24bae), @l1ambda demonstrates the power of a small and tiny API. Mithril caught my attention atleast a year ago, and since then I've implemented isomorphic websites (like http://dstllry.co) into the equation, and some yet-to-be-released projects (like an interactive documentary to be submitted to Sundance 2016).
 
-- Node
-- Heroku
-- Babel, Babel runtime, ES6/2015, ES7/2016
-- Express, with a default server, some example code and routes, static file sharing, and proxy code
-- SCSS-like syntax driven by PostCSS
-- Some example SCSS, grids, normalize and typeplate css kits (installed from bower)
-- An example index.html for serving files
-- An example .gitignore for the project
-- A host of npm scripts for watching and building your files
+There is one problem with teh current Mithril/Mithril-node-render pipeline for isomorphic apps and why I will still choose React on large or important projects: Mithril doesn't currently seem to be aware of pre-existing DOM structure when the Mithril Virtual DOM implementation mounts. 
 
-#### How to get started
+Thus, as in the provided example and screencpture, you will see an isomorphic/universal app render a simple unordered list of chores to the page. All content is available in the very first load of the page. However, once Mithril mounts the page (as it does here after a 1 second delay), Mithril re-renders the element, clearing out the mounted element.
 
-1. Start your own project folder 
+For large-scale applications, this could result in a LOT of redrawing on the page... especially pages with lots of network requests flying this way and that.
 
-    ```sh
-    cd ~/Github\ Projects/
-    mkdir example01
-    cd example01
-    ```
+Mithril's rendering is **beautifully simple** and **effing fast**, but sometimes we have to make sacrifices. :-(
 
-2. Install this package through npm (**Warning**: this _will_ delete/overwrite files, so **ONLY** use this on brand new project folders)
-
-    ```sh
-    npm install universal-js-boilerplate
-    ```
-
-3. Watch the package scaffold out files in your project
-4. Start your server:
-
-    ```sh
-    npm run s
-
-    # Alternatively, if you need nodemon to auto-reload your server 
-    # (when doing server-side work)
-    # npm run server
-    ```
-
-5. Ready to push your code live, and want to minify your code with uglifyjs?
-
-```sh
-npm run build
-```
-
-#### License
-
-MIT.
+If anyone has working pull-requests/implementations where Mithril does *not* re-render existing elements on the page, please share! :-) I really want to see that happen.
