@@ -11,11 +11,14 @@ require("babel/polyfill")
 
 // other stuff that we don't really use in our own code
 let Pace = require("../bower_components/pace/pace.js")
-import m from 'mithril'
+import m from './mithril-0.2.1' //'mithril'
 import {home} from './home'
 
 let app = () => {
-    setTimeout(() => m.mount(document.querySelector('.container'), home), 1000)
+    setTimeout(() => {
+        console.log('mounting')
+        m.mount(document.querySelector('.container'), home)
+    }, 1000)
 }
 
-window.addEventListener('load', app)
+app()

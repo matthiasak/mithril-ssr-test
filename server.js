@@ -9,7 +9,6 @@ var express = require('express'),
     csrf = require('csurf'),
     override = require('method-override')
 
-import m from 'mithril'
 import render from 'mithril-node-render'
 import {home} from './js/home'
 import * as partials from './js/partials'
